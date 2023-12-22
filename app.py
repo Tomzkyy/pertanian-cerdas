@@ -16,7 +16,7 @@ st.title('Aplikasi Prediksi Jenis Tanaman')
 
 # Deskripsi
 st.write("""Aplikasi ini dapat memprediksi jenis tanaman
-    berdasarkan beberapa atribut yang ada pada dataset
+    berdasarkan beberapa atribut yang dibutuhkan
     """)
 
 st.sidebar.header('Silahkan input data')
