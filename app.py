@@ -88,6 +88,8 @@ if btn:
         prediksi = np.array([df['N'], df['P'], df['K'], df['temperature'],
                              df['humidity'], df['ph'], df['rainfall']])
         prediksi = prediksi.reshape(1, -1)
+        knn.fit(X_train, y_train)
         hasil = knn.predict(prediksi)
-        st.subheader('Prediksi')
-        st.write(hasil)
+
+        print(hasil)
+        st.subheader(str(hasil[0]))
