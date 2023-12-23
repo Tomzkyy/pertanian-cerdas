@@ -93,3 +93,49 @@ if btn:
 
         print(hasil)
         st.subheader(str(hasil[0]))
+
+        # Menampilkan gambbar tanaman seusai prediksi
+        if hasil[0] == 'rice':
+            st.image('beras.jpeg')
+        elif hasil[0] == 'maize':
+            st.image('jagung.jpeg')
+        elif hasil[0] == 'chickpea':
+            st.image('buncis.jpeg')
+        elif hasil[0] == 'kidneybeans':
+            st.image('kacang-merah.jpeg')
+        elif hasil[0] == 'pigeonpeas':
+            st.image('kacang-polong.jpeg')
+        elif hasil[0] == 'mothbeans':
+            st.image('kacang-ngengat.jpeg')
+        elif hasil[0] == 'mungbean':
+            st.image('kacang-hijau.jpeg')
+        elif hasil[0] == 'blackgram':
+            st.image('black-gram.jpeg')
+        elif hasil[0] == 'lentil':
+            st.image('kacang-kacangan.jpeg')
+        elif hasil[0] == 'pomegranate':
+            st.image('delima.jpeg')
+        elif hasil[0] == 'banana':
+            st.image('pisang.jpeg')
+        elif hasil[0] == 'mango':
+            st.image('mangga.jpeg')
+        elif hasil[0] == 'grapes':
+            st.image('anggur.jpeg')
+        elif hasil[0] == 'watermelon':
+            st.image('semangka.jpeg')
+        elif hasil[0] == 'muskmelon':
+            st.image('muskmelon.jpeg')
+        elif hasil[0] == 'apple':
+            st.image('apel.jpeg')
+        elif hasil[0] == 'orange':
+            st.image('jeruk.jpeg')
+        elif hasil[0] == 'papaya':
+            st.image('pepaya.jpeg')
+        elif hasil[0] == 'coconut':
+            st.image('kelapa.jpeg')
+        elif hasil[0] == 'cotton':
+            st.image('kapas.jpeg')
+        elif hasil[0] == 'jute':
+            st.image('goni.jpeg')
+        elif hasil[0] == 'coffee':
+            st.image('kopi.jpeg')
