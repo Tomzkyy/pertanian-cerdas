@@ -11,7 +11,7 @@ import numpy as np
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.model_selection import train_test_split
 
-st.set_page_config(page_title='Aplikasi Prediksi Jenis Tanaman', page_icon='🌱')
+st.set_page_config(page_title='Prediksi Jenis Tanaman', page_icon='🌱')
 
 # Judul dengan spacing
 st.markdown("<h1 style='text-align: center; color: black;'>Aplikasi Prediksi Jenis Tanaman</h1>",
