@@ -11,27 +11,24 @@ import numpy as np
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.model_selection import train_test_split
 
-# Judul
-st.title('Aplikasi Prediksi Jenis Tanaman')
+st.markdown("<h1 style='text-align: center; color: black;'>Aplikasi Prediksi Jenis Tanaman</h1>",
+            unsafe_allow_html=True)
 
-# Deskripsi
-st.write("""Aplikasi ini dapat memprediksi jenis tanaman
-    berdasarkan beberapa atribut yang dibutuhkan
-    """)
+# Deskripsi with spacing
+st.markdown("<div style='text-align: center; margin-bottom: 20px;'>Aplikasi ini dapat memprediksi jenis tanaman berdasarkan beberapa faktor yang dibutuhkan.</div>", unsafe_allow_html=True)
 
-st.sidebar.header('Silahkan input data')
 
 # Fungsi untuk menerima input dari user
 
 
 def input_user():
-    N = st.sidebar.number_input('Nitrogen (N)', 0.0, 200.0, 0.0)
-    P = st.sidebar.number_input('Phosphorus (P)', 0.0, 200.0, 0.0)
-    K = st.sidebar.number_input('Potassium (K)', 0.0, 200.0, 0.0)
-    temperature = st.sidebar.number_input('Temperature', 0.0, 50.0, 0.0)
-    humidity = st.sidebar.number_input('Humidity', 0.0, 100.0, 0.0)
-    ph = st.sidebar.number_input('ph', 0.0, 14.0, 0.0)
-    rainfall = st.sidebar.number_input('Rainfall', 0.0, 300.0, 0.0)
+    N = st.number_input('Nitrogen (N)', 0.0, 500.0, 0.0)
+    P = st.number_input('Phosphorus (P)', 0.0, 500.0, 0.0)
+    K = st.number_input('Potassium (K)', 0.0, 500.0, 0.0)
+    temperature = st.number_input('Temperature', 0.0, 50.0, 0.0)
+    humidity = st.number_input('Humidity', 0.0, 100.0, 0.0)
+    ph = st.number_input('ph', 0.0, 14.0, 0.0)
+    rainfall = st.number_input('Rainfall', 0.0, 300.0, 0.0)
 
     # Memasukkan nilai fitur ke dalam dictionary
     data = {
@@ -71,7 +68,7 @@ model = KNeighborsClassifier(n_neighbors=3)
 knn = model.fit(X_train, y_train)
 
 # Tombol untuk memprediksi jenis tanaman
-btn = st.button('Prediksi')
+btn = st.button('Prediksi', type='primary')
 
 # Membuat kondisi jika tombol ditekan
 if btn:
