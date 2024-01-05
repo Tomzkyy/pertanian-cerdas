@@ -10,8 +10,25 @@ import pandas as pd
 import numpy as np
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.model_selection import train_test_split
+from PIL import Image
+import base64
+from io import BytesIO
 
-st.set_page_config(page_title='Prediksi Jenis Tanaman', page_icon='🌱')
+st.set_page_config(page_title='Prediksi Jenis Tanaman', page_icon='logo.png')
+
+# Set the width of the main content
+img = Image.open("logo.png")
+img = img.resize((500, 500))
+# Convert the image to a base64 string
+buffered = BytesIO()
+img.save(buffered, format="PNG")
+img_str = base64.b64encode(buffered.getvalue()).decode()
+
+# Display the image with spacing
+st.markdown(
+    f'<div style="text-align: center; margin-bottom: 20px;"><img src="data:image/png;base64,{img_str}" width="200"></div>',
+    unsafe_allow_html=True,
+)
 
 # Judul dengan spacing
 st.markdown("<h1 style='text-align: center; color: black;'>Aplikasi Prediksi Jenis Tanaman</h1>",
