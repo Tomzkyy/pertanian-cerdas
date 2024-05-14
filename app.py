@@ -42,9 +42,9 @@ st.markdown("<div style='text-align: center; margin-bottom: 20px;'>Aplikasi ini 
 
 
 def input_data():
-    N = st.number_input('Nitrogen (N)', 0.0, 500.0, 0.0)
-    P = st.number_input('Phosphorus (P)', 0.0, 500.0, 0.0)
-    K = st.number_input('Kalium (K)', 0.0, 500.0, 0.0)
+    N = st.number_input('Nitrogen (N)', 0.0, 250.0, 0.0)
+    P = st.number_input('Phosphorus (P)', 0.0, 250.0, 0.0)
+    K = st.number_input('Kalium (K)', 0.0, 250.0, 0.0)
     temperature = st.number_input('Temperature', 0.0, 50.0, 0.0)
     humidity = st.number_input('Humidity', 0.0, 100.0, 0.0)
     ph = st.number_input('ph', 0.0, 14.0, 0.0)
