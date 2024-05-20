@@ -81,7 +81,7 @@ X = data.drop(columns=['label'])
 y = data['label']
 
 # Membagi data menjadi data train dan data test
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3)
 
 # Membuat model KNN
 model = KNeighborsClassifier(n_neighbors=3)
