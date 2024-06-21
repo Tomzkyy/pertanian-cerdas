@@ -38,13 +38,13 @@ st.markdown("<h1 style='text-align: center; color: black;'>Aplikasi Prediksi Jen
 st.markdown("<div style='text-align: center; margin-bottom: 20px;'>Aplikasi ini dapat memprediksi jenis tanaman berdasarkan beberapa faktor yang dibutuhkan.</div>", unsafe_allow_html=True)
 
 
-# Fungsi untuk menerima input dari user
+# Fungsi untuk menerima input data
 
 
-def input_user():
-    N = st.number_input('Nitrogen (N)', 0.0, 500.0, 0.0)
-    P = st.number_input('Phosphorus (P)', 0.0, 500.0, 0.0)
-    K = st.number_input('Potassium (K)', 0.0, 500.0, 0.0)
+def input_data():
+    N = st.number_input('Nitrogen (N)', 0.0, 250.0, 0.0)
+    P = st.number_input('Phosphorus (P)', 0.0, 250.0, 0.0)
+    K = st.number_input('Kalium (K)', 0.0, 250.0, 0.0)
     temperature = st.number_input('Temperature', 0.0, 50.0, 0.0)
     humidity = st.number_input('Humidity', 0.0, 100.0, 0.0)
     ph = st.number_input('ph', 0.0, 14.0, 0.0)
@@ -66,8 +66,8 @@ def input_user():
     return features
 
 
-# Menjalankan fungsi input_user()
-df = input_user()
+# Menjalankan fungsi input_data()
+df = input_data()
 
 # Menampilkan nilai fitur
 st.subheader('Data yang telah di input')
