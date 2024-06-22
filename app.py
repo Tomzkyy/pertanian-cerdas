@@ -1,9 +1,3 @@
-# Saya akan membuat sebuah aplikasi untuk memprediksi jenis tanaman
-# berdasarkan beberapa fitur yang ada pada dataset
-# Nitrogen (N), Phosphorus (P), dan Potassium (K), Temperatur, humidity, ph, rainfall
-# Saya akan menggunakan algoritma KNN untuk memprediksi jenis tanaman
-# kemudian di deploy menggunakan streamlit
-
 # Import library
 import streamlit as st
 import pandas as pd
@@ -39,16 +33,19 @@ st.markdown("<div style='text-align: center; margin-bottom: 20px;'>Aplikasi ini 
 
 
 # Fungsi untuk menerima input data
-
-
 def input_data():
-    N = st.number_input('Nitrogen (N)', 0.0, 250.0, 0.0)
-    P = st.number_input('Phosphorus (P)', 0.0, 250.0, 0.0)
-    K = st.number_input('Kalium (K)', 0.0, 250.0, 0.0)
-    temperature = st.number_input('Temperature', 0.0, 50.0, 0.0)
-    humidity = st.number_input('Humidity', 0.0, 100.0, 0.0)
-    ph = st.number_input('ph', 0.0, 14.0, 0.0)
-    rainfall = st.number_input('Rainfall', 0.0, 300.0, 0.0)
+    N = st.number_input(
+        'Nitrogen (N) | Range Data (0 - 250)', 0.0, 250.0, 0.0)
+    P = st.number_input(
+        'Phosphorus (P) | Range Data (0 - 250)', 0.0, 250.0, 0.0)
+    K = st.number_input('Kalium (K) | Range Data (0 - 250)', 0.0, 250.0, 0.0)
+    temperature = st.number_input(
+        'Temperature | Range Data (0 - 50)', 0.0, 50.0, 0.0)
+    humidity = st.number_input(
+        'Humidity | Range Data (0 - 100)', 0.0, 100.0, 0.0)
+    ph = st.number_input('ph | Range Data (0 - 14)', 0.0, 14.0, 0.0)
+    rainfall = st.number_input(
+        'Rainfall | Range Data (0 - 300)', 0.0, 300.0, 0.0)
 
     # Memasukkan nilai fitur ke dalam dictionary
     data = {
@@ -100,18 +97,24 @@ if btn:
         st.warning('Masih ada atribut yang bernilai 0.')
     # Jika semua nilai input bukan 0
     else:
-
         # Memprediksi jenis tanaman
         prediksi = np.array([df['N'], df['P'], df['K'], df['temperature'],
                              df['humidity'], df['ph'], df['rainfall']])
         prediksi = prediksi.reshape(1, -1)
         knn.fit(X_train, y_train)
         hasil = knn.predict(prediksi)
+        accuracy = knn.score(X_test, y_test)
 
-        print(hasil)
-        st.subheader(str(hasil[0]))
+        # Menampilkan hasil prediksi dan akurasi dalam tabel
+        result_data = {
+            'Prediksi Jenis Tanaman': [hasil[0]],
+            'Akurasi Model (%)': [f'{accuracy * 100:.2f}']
+        }
+        result_df = pd.DataFrame(result_data)
+        st.subheader('Hasil Prediksi dan Akurasi Model')
+        st.table(result_df)
 
-        # Menampilkan gambbar tanaman seusai prediksi
+        # Menampilkan gambar tanaman sesuai prediksi
         if hasil[0] == 'rice':
             st.image('beras.jpeg')
         elif hasil[0] == 'maize':
