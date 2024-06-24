@@ -35,17 +35,17 @@ st.markdown("<div style='text-align: center; margin-bottom: 20px;'>Aplikasi ini 
 # Fungsi untuk menerima input data
 def input_data():
     N = st.number_input(
-        'Nitrogen (N) | Range Data (0 - 250)', 0.0, 250.0, 0.0)
+        'Nitrogen (N) | Range Data (1 - 250)', 0.0, 250.0, 0.0)
     P = st.number_input(
-        'Phosphorus (P) | Range Data (0 - 250)', 0.0, 250.0, 0.0)
-    K = st.number_input('Kalium (K) | Range Data (0 - 250)', 0.0, 250.0, 0.0)
+        'Phosphorus (P) | Range Data (1 - 250)', 0.0, 250.0, 0.0)
+    K = st.number_input('Kalium (K) | Range Data (1 - 250)', 0.0, 250.0, 0.0)
     temperature = st.number_input(
-        'Temperature | Range Data (0 - 50)', 0.0, 50.0, 0.0)
+        'Temperature | Range Data (1 - 50)', 0.0, 50.0, 0.0)
     humidity = st.number_input(
-        'Humidity | Range Data (0 - 100)', 0.0, 100.0, 0.0)
-    ph = st.number_input('ph | Range Data (0 - 14)', 0.0, 14.0, 0.0)
+        'Humidity | Range Data (1 - 100)', 0.0, 100.0, 0.0)
+    ph = st.number_input('ph | Range Data (1 - 14)', 0.0, 14.0, 0.0)
     rainfall = st.number_input(
-        'Rainfall | Range Data (0 - 300)', 0.0, 300.0, 0.0)
+        'Rainfall | Range Data (1 - 300)', 0.0, 300.0, 0.0)
 
     # Memasukkan nilai fitur ke dalam dictionary
     data = {
@@ -107,11 +107,12 @@ if btn:
 
         # Menampilkan hasil prediksi dan akurasi dalam tabel
         result_data = {
-            'Prediksi Jenis Tanaman': [hasil[0]],
-            'Akurasi Model (%)': [f'{accuracy * 100:.2f}']
+            'Prediksi Jenis Tanaman': hasil,
+            'Akurasi Model (%)': [f'{accuracy * 100:.2f}'] * len(hasil)
         }
         result_df = pd.DataFrame(result_data)
-        st.subheader('Hasil Prediksi dan Akurasi Model')
+        result_df = result_df.set_index('Prediksi Jenis Tanaman')
+        st.subheader('Hasil Prediksi dan Akurasi Model KNN')
         st.table(result_df)
 
         # Menampilkan gambar tanaman sesuai prediksi
